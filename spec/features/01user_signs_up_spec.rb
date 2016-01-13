@@ -25,7 +25,7 @@ feature 'sign up' do
 
     expect(page).to have_content("Please review the problems below:")
   end
-  
+
   scenario 'password confirmation does not match confirmation' do
     user2 = FactoryGirl.create(:user)
     visit root_path

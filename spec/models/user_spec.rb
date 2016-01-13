@@ -9,9 +9,7 @@ RSpec.describe User do
   it { should_not have_valid(:last_name).when(nil, '') }
 
   it { should have_valid(:email).when('user@example.com', 'another@gmail.com') }
-  it { should_not have_valid(:email).when(
-    nil, "", 'ryan', 'ryan@com', 'ryan.com'
-  ) }
+  it { should_not have_valid(:email).when(nil, "", 'ryan@com', 'ryan.com') }
 
   it 'has a matching password confirmation for the password' do
     user = User.new
