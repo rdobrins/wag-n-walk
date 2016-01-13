@@ -10,6 +10,124 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require foundation_and_overrides
  *= require_tree .
  *= require_self
+
  */
+body {
+  background-color: #005542;
+  color: #f9f8f6;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+h1 {
+  color: #fff200;
+}
+
+h2 {
+  color: #f9f8f6;
+}
+
+h4 {
+  color: #f9f8f6;
+}
+
+h5 {
+  color: #f9f8f6;
+}
+
+li {
+  color: #f9f8f6;
+}
+
+a {
+  color: #f9f8f6;
+}
+
+a:hover {
+    background-color: yellow;
+}
+
+label {
+  color: #f9f8f6;
+}
+
+ul {
+  margin-left: 50px;
+  list-style: none;
+  font-size: 20px;
+}
+
+.top-bar {
+  background-color: #fff200;
+  color: #005542;
+  margin-left: -3rem;
+  margin-right: -3rem;
+}
+
+.green-background {
+  background-color: #fff200;
+}
+
+.HomeHeader {
+  margin-left: 50px
+}
+
+.StationsHeader {
+  margin-left: 50px;
+  text-decoration: underline;
+}
+
+.centered {
+  padding: 3rem;
+  padding-left: 11rem;
+}
+
+.homepic {
+  height: 24rem;
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 3rem;
+  float: right;
+  padding-right: 2rem;
+  margin-right: -15rem;
+}
+
+.stations-list {
+  margin-left: 3rem;
+}
+
+.inline {
+  padding-right: 2rem;
+  display: inline-block;
+}
+
+#img-size {
+  height: auto;
+  width: auto;
+  max-width: 45px;
+  max-height: 45px;
+}
+
+#hometextpic {
+  height: 3.75rem;
+  padding-bottom: .75rem;
+}
+
+#home-compass {
+  color: #005542;
+}
+
+#subway-link:hover {
+  background-color: #005542;
+}
+
+#search-button {
+  background-color: #005542;
+}
+
+/*#fff200
+#005542
+#f9f8f6*/
