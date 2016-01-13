@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'dotenv-rails'
+gem 'simple_form'
+gem 'devise'
 
 group :development, :test do
   gem 'pry'
@@ -19,9 +21,11 @@ group :development, :test do
   gem 'launchy'
   gem 'faker'
   gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda'
   gem 'database_cleaner'
+  gem 'quiet_assets'
 end
 
 group :test do
