@@ -13,5 +13,6 @@
 /tmp
 
 /coverage
-
+/config/secrets.yml
 .env
+/.env

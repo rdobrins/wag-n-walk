@@ -8,11 +8,16 @@ feature 'sign up' do
   scenario 'specifying valid and required information' do
     visit root_path
     click_link 'Sign Up'
-    fill_in 'First name', with: "Ryan"
-    fill_in 'Last name', with: "Dobrinski"
-    fill_in 'Email', with: "ryandob@gmail.com"
-    fill_in 'Password', with: "password", match: :prefer_exact
-    fill_in 'Password confirmation', with: "password"
+    fill_in '* First name', with: "Ryan"
+    fill_in '* Last name', with: "Dobrinski"
+    fill_in '* Email', with: "ryandob@gmail.com"
+    fill_in 'Phone number', with: "5553210123"
+    fill_in '* Address', with: "22 This Street"
+    fill_in '* City', with: "Hopkinton"
+    fill_in '* State', with: "MA"
+    fill_in '* Zip', with: "01748"
+    fill_in '* Password', with: "password", match: :prefer_exact
+    fill_in '* Password confirmation', with: "password"
     click_on 'Sign up'
 
     expect(page).to have_content("Welcome! You have signed up successfully.")
@@ -30,11 +35,16 @@ feature 'sign up' do
     user2 = FactoryGirl.create(:user)
     visit root_path
     click_link 'Sign Up'
-    fill_in 'First name', with: user2.first_name
-    fill_in 'Last name', with: user2.last_name
-    fill_in 'Email', with: "The" + user2.email
-    fill_in 'Password', with: user2.password, match: :prefer_exact
-    fill_in 'Password confirmation', with: "user2.password"
+    fill_in '* First name', with: user2.first_name
+    fill_in '* Last name', with: user2.last_name
+    fill_in '* Email', with: "The" + user2.email
+    fill_in 'Phone number', with: "5553210123"
+    fill_in '* Address', with: "22 This Street"
+    fill_in '* City', with: "Hopkinton"
+    fill_in '* State', with: "MA"
+    fill_in '* Zip', with: "01748"
+    fill_in '* Password', with: user2.password, match: :prefer_exact
+    fill_in '* Password confirmation', with: "user2.password"
     click_on 'Sign up'
 
     expect(page).to have_content("doesn't match Password")

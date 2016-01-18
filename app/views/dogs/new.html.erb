@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+
+  <%= form_for [@user, @dog] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, value: @dog.name %>
+      </br>
+    <%= f.label :breed %>
+    <%= f.text_field :breed, value: @dog.breed %>
+      </br>
+    <%= f.label :body, "Doggy Info" %>
+    <%= f.text_field :body, value: @dog.body %>
+      </br>
+    <%= f.label :avatar, 'Change Picture' %>
+    <%= f.file_field :avatar %>
+      </br>
+    <%= f.hidden_field(:user_id, :value => @user.id) %>
+    <%= f.submit "Submit New Dog" %>
+  <% end %>
+
+  <%= link_to "Back to User Page", user_path(@user) %>
+<% else %>
+  <h2>Need to be logged in to submit new Dog</h2>
+    </br>
+  <%= link_to "Home Page", root_path %>
+<% end %>
