@@ -1,5 +1,4 @@
 class DogsController < ApplicationController
-
   def new
     @user = current_user
     @dog = Dog.new
