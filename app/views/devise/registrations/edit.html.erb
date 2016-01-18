@@ -9,9 +9,22 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
+    <h6>Change User Information</h6>
+    <%= f.input_field :walker, as: :boolean, boolean_style: :inline %>
+    <%= f.label :walker, 'Check Box to Register as a Walker' %>
+    <%= f.input :phone_number, required: false%>
+    <%= f.input :address, required: false %>
+    <%= f.input :city, required: false %>
+    <%= f.input :state, required: false %>
+    <%= f.input :zip, required: false %>
+    <%= f.label :avatar, 'Change Picture' %>
+    <%= f.file_field :avatar %>
+    </br></br>
+    <h6>Change Password</h6>
     <%= f.input :password, autocomplete: "off", required: false %>
     <%= f.input :password_confirmation, required: false %>
+    </br></br>
+    <h6>Input Current Password to Confirm Changes</h6>
     <%= f.input :current_password, required: true %>
   </div>
 
@@ -24,7 +37,7 @@
   </div>
 <% end %>
 
-  </br>
+  </br></br>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 

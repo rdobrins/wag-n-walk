@@ -12,8 +12,13 @@ gem 'foundation-rails'
 gem 'dotenv-rails'
 gem 'simple_form'
 gem 'devise'
+gem 'carrierwave'
+gem 'fog'
+gem 'kaminari'
+gem 'twitter'
 
 group :development, :test do
+  gem 'dotenv'
   gem 'pry'
   gem 'pry-rails'
   gem 'rspec-rails'
@@ -30,4 +35,12 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'poltergeist'
 end
+
+group :development do
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
+end
+
+gem 'rails_12factor', group: :production

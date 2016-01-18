@@ -1,0 +1,20 @@
+
+<% if user_signed_in? %>
+  <h1> Signed in as: <%= @user.first_name %> <%= @user.last_name %></h1>
+
+  <div class="">
+    <img src="<%= @user.avatar.url %>"/>
+  </div>
+
+  <%= link_to "Add Dog", new_user_dog_path(@user) %>
+
+  <ul>
+    <% @user.dogs.each do |dog| %>
+      <li> <%= dog.name %> </li>
+        <img src="<%= dog.avatar.url %>"/>
+    <% end %>
+  </ul>
+<% else %>
+    </br>
+  <%= link_to "Home Page", root_path %>
+<% end %>

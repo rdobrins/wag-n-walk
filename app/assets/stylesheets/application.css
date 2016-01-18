@@ -95,6 +95,10 @@ ul {
   margin-right: -15rem;
 }
 
+.form-inputs {
+  width: 20rem;
+}
+
 .stations-list {
   margin-left: 3rem;
 }

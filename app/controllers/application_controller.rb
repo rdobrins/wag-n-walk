@@ -6,13 +6,29 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_up_path_for(*)
-    session[:previous_url] || root_path
+    root_path
   end
 
   def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:account_update) << [
+      :avatar,
+      :phone_number,
+      :address,
+      :city,
+      :state,
+      :zip,
+      :walker
+    ]
     devise_parameter_sanitizer.for(:sign_up) << [
       :first_name,
-      :last_name
+      :last_name,
+      :avatar,
+      :phone_number,
+      :address,
+      :city,
+      :state,
+      :zip,
+      :walker
     ]
   end
 end
