@@ -6,6 +6,7 @@
 
   <title><%= content_for?(:title) ? yield(:title) : "Wag-N-Walk" %></title>
 
+  <link rel="stylesheet" href="jdpicker.css" type="text/css" media="screen" />
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>

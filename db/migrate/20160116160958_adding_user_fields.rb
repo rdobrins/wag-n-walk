@@ -7,5 +7,6 @@ class AddingUserFields < ActiveRecord::Migration
     add_column :users, :state, :string, null: false
     add_column :users, :zip, :string, null: false
     add_column :users, :admin, :boolean, default: "false"
+    add_column :users, :rate, :integer, default: 10
   end
 end

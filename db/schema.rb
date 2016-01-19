@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160118190237) do
     t.string   "state",                                  null: false
     t.string   "zip",                                    null: false
     t.boolean  "admin",                  default: false
+    t.integer  "rate",                   default: 10
     t.boolean  "walker",                 default: false
   end
 
@@ -53,8 +54,10 @@ ActiveRecord::Schema.define(version: 20160118190237) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "walks", force: :cascade do |t|
-    t.string "date",                   null: false
-    t.string "capacity", default: "1", null: false
+    t.date    "date",                 null: false
+    t.integer "capacity", default: 1, null: false
+    t.integer "user_id",              null: false
+    t.text    "body"
   end
 
 end

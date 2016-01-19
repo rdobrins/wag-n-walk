@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :dogs
+  has_many :walks
 
   devise :database_authenticatable,
     :registerable,

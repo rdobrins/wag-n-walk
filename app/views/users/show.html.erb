@@ -1,20 +1,41 @@
-
 <% if user_signed_in? %>
-  <h1> Signed in as: <%= @user.first_name %> <%= @user.last_name %></h1>
 
-  <div class="">
-    <img src="<%= @user.avatar.url %>"/>
+  <div class="float-left">
+    <h1> Signed in as: <%= @user.first_name %> <%= @user.last_name %></h1>
+
+    <div class="">
+      <img id='img-size' src="<%= @user.avatar.url %>"/>
+    </div>
+
+    <%= link_to "Add Dog", new_user_dog_path(@user) %>
+
+    <ul>
+      <% @user.dogs.each do |dog| %>
+        <li> <%= dog.name %> </li>
+          <img id='img-size' src="<%= dog.avatar.url %>"/>
+          <%= dog.body %>
+          <%= link_to "Edit Profile", edit_user_dog_path(@user, dog) %>
+      <% end %>
+    </ul>
   </div>
+  <% if @user.walker %>
+    <div class="float-right">
+      <h3>Your Upcoming Walks:</h3>
+      <ul>
+        <% @user.walks.each do |walk| %>
+          <% if walk.date >= Date.today %>
+            <li> <%= walk.date %> </li>
+            <h6> Capacity </h6>
+            <%= walk.body %>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <%= link_to "Add Dog", new_user_dog_path(@user) %>
+  <%= link_to "History of Your Walks", user_walks_path(@user) %>
+  <%= link_to "Create Walk", new_user_walk_path(@user) %>
 
-  <ul>
-    <% @user.dogs.each do |dog| %>
-      <li> <%= dog.name %> </li>
-        <img src="<%= dog.avatar.url %>"/>
-        <%= dog.body %>
-    <% end %>
-  </ul>
 <% else %>
     </br>
   <%= link_to "Home Page", root_path %>

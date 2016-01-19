@@ -2,13 +2,13 @@
 
   <%= form_for [@user, @dog] do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name, value: @dog.name %>
+    <%= f.text_field :name %>
       </br>
     <%= f.label :breed %>
-    <%= f.text_field :breed, value: @dog.breed %>
+    <%= f.text_field :breed %>
       </br>
     <%= f.label :body, "Doggy Info" %>
-    <%= f.text_field :body, value: @dog.body %>
+    <%= f.text_field :body %>
       </br>
     <%= f.label :avatar, 'Change Picture' %>
     <%= f.file_field :avatar %>
