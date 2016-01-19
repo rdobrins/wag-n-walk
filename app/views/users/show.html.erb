@@ -12,6 +12,7 @@
     <% @user.dogs.each do |dog| %>
       <li> <%= dog.name %> </li>
         <img src="<%= dog.avatar.url %>"/>
+        <%= dog.body %>
     <% end %>
   </ul>
 <% else %>
