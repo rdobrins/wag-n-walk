@@ -1,6 +1,5 @@
 class Walk < ActiveRecord::Base
   belongs_to :user
-  
   validates :date, presence: true
   validates :capacity, presence: true
   validates :capacity, numericality: {
