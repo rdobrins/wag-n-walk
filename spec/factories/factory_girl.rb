@@ -11,3 +11,12 @@ FactoryGirl.define do
     password "password"
   end
 end
+
+FactoryGirl.define do
+  factory :dog do
+    name "Bennett"
+    breed "Beagle"
+    user_id 1
+    body "Bennett is the best dog a kid could ask for!"
+  end
+end

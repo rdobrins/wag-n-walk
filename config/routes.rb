@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :dogs do
     end
+    resources :walks do
+    end
   end
 end

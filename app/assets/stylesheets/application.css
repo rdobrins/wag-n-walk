@@ -16,38 +16,38 @@
 
  */
 body {
-  background-color: #005542;
-  color: #f9f8f6;
+  background-color: #B6B6B6;
+  color: #FF5A09;
   margin-left: 3rem;
   margin-right: 3rem;
 }
 
 h1 {
-  color: #fff200;
+  color: #004687;
 }
 
 h2 {
-  color: #f9f8f6;
+  color: #004687;
 }
 
 h4 {
-  color: #f9f8f6;
+  color: #004687;
 }
 
 h5 {
-  color: #f9f8f6;
+  color: #004687;
 }
 
 li {
-  color: #f9f8f6;
+  color: #004687;
 }
 
 a {
-  color: #f9f8f6;
+  color: #004687;
 }
 
 a:hover {
-    background-color: yellow;
+    background-color: #FF5A09;
 }
 
 label {
@@ -61,14 +61,14 @@ ul {
 }
 
 .top-bar {
-  background-color: #fff200;
-  color: #005542;
+  background-color: #F0F0F0;
+  color: #FF5A09;
   margin-left: -3rem;
   margin-right: -3rem;
 }
 
 .green-background {
-  background-color: #fff200;
+  background-color: #B6B6B6;
 }
 
 .HomeHeader {
@@ -83,6 +83,14 @@ ul {
 .centered {
   padding: 3rem;
   padding-left: 11rem;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
 }
 
 .homepic {
@@ -111,8 +119,8 @@ ul {
 #img-size {
   height: auto;
   width: auto;
-  max-width: 45px;
-  max-height: 45px;
+  max-width: 8rem;
+  max-height: 8rem;
 }
 
 #hometextpic {
@@ -121,15 +129,15 @@ ul {
 }
 
 #home-compass {
-  color: #005542;
+  color: #004687;
 }
 
 #subway-link:hover {
-  background-color: #005542;
+  background-color: #FF5A09;
 }
 
 #search-button {
-  background-color: #005542;
+  background-color: #004687;
 }
 
 /*#fff200
