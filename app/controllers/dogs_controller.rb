@@ -13,7 +13,7 @@ class DogsController < ApplicationController
       flash[:notice] = "Dog added successfully"
       redirect_to user_path(@user)
     else
-      flash[:errors] = @review.errors.full_messages.join(". ")
+      flash[:errors] = @dog.errors.full_messages.join(". ")
       render :new
     end
   end
