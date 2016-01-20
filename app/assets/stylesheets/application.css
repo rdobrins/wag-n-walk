@@ -116,6 +116,10 @@ ul {
   display: inline-block;
 }
 
+.accordion {
+  width: 30rem;
+}
+
 #img-size {
   height: auto;
   width: auto;

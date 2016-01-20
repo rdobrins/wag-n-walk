@@ -1,34 +1,69 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+$(function() {
+  $( ".accordion" ).accordion();
+});
+</script>
+
 <% if user_signed_in? %>
   <div class="float-left">
     <h1> Signed in as: <%= @user.first_name %> <%= @user.last_name %></h1>
+    <%= link_to "History of Your Walks", user_walks_path(@user) %> </br>
+    <% if @user.walker %>
+      <%= link_to "Create Walk", new_user_walk_path(@user) %> </br></br>
+    <% end %>
       <img id='img-size' src="<%= @user.avatar.url %>"/>
     <%= link_to "Add Dog", new_user_dog_path(@user) %>
     <% @user.dogs.each do |dog| %>
-    <ul>
-        <li> <%= dog.name %> </li>
+      <ul>
+        <li><h3> <%= dog.name %> </h3></li>
         <img id='img-size' src="<%= dog.avatar.url %>"/>
         <%= dog.body %>
         <%= link_to "Edit Profile", edit_user_dog_path(@user, dog) %>
-    </ul>
+      </ul>
     <% end %>
   </div>
   <% if @user.walker %>
     <div class="float-right">
       <h3>Your Upcoming Walks:</h3>
-      <% @user.walks.each do |walk| %>
-      <ul>
+
+      <div class="accordion">
+
+      <% @walks.each do |walk| %>
         <% if walk.date >= Date.today %>
-          <li> <%= walk.date %> </li>
-          <h6> Capacity??? </h6>
+          <h3> <%= l walk.date %> </h3>
+          <div>
+          Capacity???
           <%= walk.body %>
           <%= link_to "Edit Walk", edit_user_walk_path(@user, walk) %>
+          </div>
         <% end %>
-      </ul>
       <% end %>
+
+      </div>
+
+      <h3>Your Dogs' Upcoming Walks:</h3>
+
+      <div class="accordion">
+
+      <% @walks.each do |walk| %>
+        <% if walk.date >= Date.today %>
+          <h3> <%= l walk.date %> </h3>
+          <div>
+          Capacity???
+          <%= walk.body %>
+          <%= link_to "Edit Walk", edit_user_walk_path(@user, walk) %>
+          </div>
+        <% end %>
+      <% end %>
+
+      </div>
+
     </div>
   <% end %>
-  <%= link_to "History of Your Walks", user_walks_path(@user) %>
-  <%= link_to "Create Walk", new_user_walk_path(@user) %>
 <% else %>
     </br>
   <%= link_to "Home Page", root_path %>
