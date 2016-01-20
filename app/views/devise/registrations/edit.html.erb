@@ -12,6 +12,8 @@
     <h6>Change User Information</h6>
     <%= f.input_field :walker, as: :boolean, boolean_style: :inline %>
     <%= f.label :walker, 'Check Box to Register as a Walker' %>
+    <%= f.label :rate, "Charge Per Walk (USD)" %>
+    <%= f.select(:rate, (1..30).to_a.reverse) %>
     <%= f.input :phone_number, required: false%>
     <%= f.input :address, required: false %>
     <%= f.input :city, required: false %>

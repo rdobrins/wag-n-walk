@@ -1,23 +1,24 @@
 <% if user_signed_in? %>
-
-  <%= form_for [@user, @dog] do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, value: @dog.name %>
-      </br>
-    <%= f.label :breed %>
-    <%= f.text_field :breed, value: @dog.breed %>
-      </br>
-    <%= f.label :body, "Doggy Info" %>
-    <%= f.text_field :body, value: @dog.body %>
-      </br>
-    <%= f.label :avatar, 'Change Picture' %>
-    <%= f.file_field :avatar %>
-      </br>
-    <%= f.hidden_field(:user_id, :value => @user.id) %>
-    <%= f.submit "Update Dog Information" %>
-  <% end %>
-
-  <%= link_to "Back to User Page", user_path(@user) %>
+  <div class="form-inputs">
+    <%= form_for [@user, @dog] do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, value: @dog.name %>
+        </br>
+      <%= f.label :breed %>
+      <%= f.text_field :breed, value: @dog.breed %>
+        </br>
+      <%= f.label :body, "Doggy Info" %>
+      <%= f.text_area :body, value: @dog.body %>
+        </br>
+      <%= f.label :avatar, 'Change Picture' %>
+      <%= f.file_field :avatar %>
+        </br>
+      <%= f.hidden_field(:user_id, :value => @user.id) %>
+      <%= f.submit "Update Dog Information" %>
+    <% end %>
+    <%= link_to "Delete Dog Profile", user_dog_path(@user, @dog), :confirm => 'Are you sure?', :method => :delete %>
+    <%= link_to "Back to User Page", user_path(@user) %>
+  </div>
 <% else %>
   <h2>Need to be logged in to update Dogs</h2>
     </br>

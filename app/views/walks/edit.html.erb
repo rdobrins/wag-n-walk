@@ -1,0 +1,22 @@
+<h2>Date of Walk Cannot be Changed.</h2>
+
+<% if user_signed_in? && @user.walker %>
+  <div class="form-inputs">
+    <%= form_for [@user, @walk] do |f| %>
+      <%= f.label :capacity, "Number of Dogs to Walk" %>
+      <%= f.select(:capacity, (1..10).to_a.reverse) %>
+        </br>
+      <%= f.label :body, "Description" %>
+      <%= f.text_area :body, value: @walk.body %>
+        </br>
+      <%= f.hidden_field(:user_id, :value => @user.id) %>
+      <%= f.submit "Edit Walk" %>
+    <% end %>
+    <%= link_to "Delete Walk", user_walk_path(@user, @walk), :confirm => 'Are you sure?', :method => :delete %>
+    <%= link_to "Back to User Page", user_path(@user) %>
+  </div>
+<% else %>
+  <h2>Need to be logged in and registered as a Walker to edit a walk.</h2>
+    </br>
+  <%= link_to "Home Page", root_path %>
+<% end %>

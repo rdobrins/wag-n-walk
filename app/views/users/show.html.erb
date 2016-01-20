@@ -1,41 +1,34 @@
 <% if user_signed_in? %>
-
   <div class="float-left">
     <h1> Signed in as: <%= @user.first_name %> <%= @user.last_name %></h1>
-
-    <div class="">
       <img id='img-size' src="<%= @user.avatar.url %>"/>
-    </div>
-
     <%= link_to "Add Dog", new_user_dog_path(@user) %>
-
+    <% @user.dogs.each do |dog| %>
     <ul>
-      <% @user.dogs.each do |dog| %>
         <li> <%= dog.name %> </li>
-          <img id='img-size' src="<%= dog.avatar.url %>"/>
-          <%= dog.body %>
-          <%= link_to "Edit Profile", edit_user_dog_path(@user, dog) %>
-      <% end %>
+        <img id='img-size' src="<%= dog.avatar.url %>"/>
+        <%= dog.body %>
+        <%= link_to "Edit Profile", edit_user_dog_path(@user, dog) %>
     </ul>
+    <% end %>
   </div>
   <% if @user.walker %>
     <div class="float-right">
       <h3>Your Upcoming Walks:</h3>
+      <% @user.walks.each do |walk| %>
       <ul>
-        <% @user.walks.each do |walk| %>
-          <% if walk.date >= Date.today %>
-            <li> <%= walk.date %> </li>
-            <h6> Capacity </h6>
-            <%= walk.body %>
-          <% end %>
+        <% if walk.date >= Date.today %>
+          <li> <%= walk.date %> </li>
+          <h6> Capacity??? </h6>
+          <%= walk.body %>
+          <%= link_to "Edit Walk", edit_user_walk_path(@user, walk) %>
         <% end %>
       </ul>
+      <% end %>
     </div>
   <% end %>
-
   <%= link_to "History of Your Walks", user_walks_path(@user) %>
   <%= link_to "Create Walk", new_user_walk_path(@user) %>
-
 <% else %>
     </br>
   <%= link_to "Home Page", root_path %>
