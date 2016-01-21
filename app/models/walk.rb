@@ -3,7 +3,7 @@ class Walk < ActiveRecord::Base
   class_name: "User",
   foreign_key: :user_id
 
-  has_many :memberships
+  has_many :memberships, dependent: :destroy
   has_many :dogs, through: :memberships
 
   validates :date, presence: true

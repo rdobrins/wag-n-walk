@@ -6,6 +6,7 @@ class DogsController < ApplicationController
     @localwalks = Walk.where(@user.zip == @localusers.zip).sort_by &:date
     @assignedwalks = @dog.walks.sort_by &:date
     @membership = Membership.new
+    @memberships = @dog.memberships
   end
 
   def new

@@ -5,14 +5,16 @@
 
   <div class="form-inputs">
     <%= f.input_field :walker, as: :boolean, boolean_style: :inline %>
-    <%= f.label :walker, 'Check Box to Register as a Walker' %>
+    <%= f.label :walker, 'Register as Walker?' %>
+    <h6>(Default is $10.00/Walk, Edit After Sign Up)</h6>
     <%= f.input :first_name, required: true %>
     <%= f.input :last_name, required: true %>
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :phone_number%>
     <%= f.input :address, required: true %>
     <%= f.input :city, required: true %>
-    <%= f.input :state, required: true %>
+    <%= f.label :state, required: true %>
+    <%= f.select :state, options_for_select(us_states), required: true %>
     <%= f.input :zip, required: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>

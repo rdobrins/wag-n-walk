@@ -1,22 +1,24 @@
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
+
 <script>
 $(function() {
   $( ".accordion" ).accordion();
 });
 </script>
-</br>
+
+  </br>
 <%= link_to "Back to User Page", user_path(@user) %>
-</br>
+  </br>
 <%= link_to "Edit Profile", edit_user_dog_path(@user, @dog) %>
-</br>
+  </br>
 <div class="float-left">
   <ul>
-  <li><%= @dog.name %></li>
-  <li><img src="<%= @dog.avatar.url %>"></li>
-  <li><%= @dog.body %></li>
+    <li><%= @dog.name %></li>
+    <li><img src="<%= @dog.avatar.url %>"></li>
+    <li><%= @dog.body %></li>
   </ul>
 </div>
 
@@ -25,7 +27,8 @@ $(function() {
   <h3>Walks that <%= @dog.name %> is scheduled for:</h3>
 
   <div class="accordion">
-    <% @assignedwalks.each do |walk| %>
+    <% @memberships.each do |mem| %>
+      <% walk = Walk.find(mem[:walk_id]) %>
       <% if walk.date >= Date.today && walk.user_id != @user.id %>
         <h3> <%= walk.walker.first_name %> <%= walk.walker.last_name %> on <%= l walk.date %> </h3>
         <div>
@@ -34,9 +37,12 @@ $(function() {
           </br>
         <%= walk.body %>
           </br>
+        <%= button_to "Remove #{@dog.name} from Walk", dog_membership_path(@dog,mem), method: :delete %>
         </div>
-        <% end %>
+      <% else %>
+        <h4>None Scheduled.</h4>
       <% end %>
+    <% end %>
   </div>
 
   </br></br></br>
@@ -56,13 +62,11 @@ $(function() {
         </br>
       <%= form_for [@dog, @membership] do |f| %>
         <%= f.hidden_field(:walk_id, :value => walk.id) %>
-        <%= f.submit "Add To Walk" %>
+        <%= f.submit "Add #{@dog.name} to Walk" %>
       <% end %>
         </br>
       </div>
     <% end %>
   <% end %>
-
   </div>
-
 </div>

@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :email, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates :address, presence: true
   validates :city, presence: true
-  validates :state, presence: true
+  validates :state, presence: true, length: { is: 2 }
   validates :zip, presence: true
   validates :zip, length: { is: 5 }
   validates :zip, numericality: { only_integer: true }
