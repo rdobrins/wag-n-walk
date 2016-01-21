@@ -17,7 +17,8 @@ class ApplicationController < ActionController::Base
       :city,
       :state,
       :zip,
-      :walker
+      :walker,
+      :rate
     ]
     devise_parameter_sanitizer.for(:sign_up) << [
       :first_name,

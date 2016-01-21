@@ -12,7 +12,7 @@ class WalksController < ApplicationController
   def create
     @user = current_user
     @walk = Walk.new(walk_params)
-    @walk.user = @user
+    @walk.walker = @user
 
     if @walk.save
       flash[:notice] = "Walk Created Successfully"
