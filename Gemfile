@@ -16,6 +16,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'kaminari'
 gem 'twitter'
+gem 'twilio-ruby'
 
 group :development, :test do
   gem 'dotenv'

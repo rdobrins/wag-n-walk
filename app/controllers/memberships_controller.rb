@@ -19,6 +19,13 @@ class MembershipsController < ApplicationController
 
   end
 
+  def destroy
+    @user = current_user
+    @dog = Dog.find(params[:dog_id])
+    Membership.find(params[:id]).destroy
+    redirect_to user_dog_path(@user, @dog)
+  end
+
   private
 
   def membership_params
