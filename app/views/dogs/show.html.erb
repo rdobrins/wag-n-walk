@@ -30,7 +30,7 @@ $(function() {
     <% @memberships.each do |mem| %>
       <% walk = Walk.find(mem[:walk_id]) %>
       <% if walk.date >= Date.today && walk.user_id != @user.id %>
-        <h3> <%= walk.walker.first_name %> <%= walk.walker.last_name %> on <%= l walk.date %> </h3>
+        <h3>Walk with <%= walk.walker.first_name %> <%= walk.walker.last_name %> on <%= l walk.date %> </h3>
         <div>
           </br>
         Capacity???

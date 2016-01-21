@@ -21,7 +21,7 @@
       <%= f.select(:capacity, (1..10).to_a.reverse) %>
         </br>
       <%= f.label :body, "Description" %>
-      <%= f.text_area :body %>
+      <%= f.text_area :body, cols: 20, rows: 8 %>
         </br>
       <%= f.hidden_field(:user_id, :value => @user.id) %>
       <%= f.submit "Create New Walk" %>
