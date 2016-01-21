@@ -17,8 +17,7 @@
     <%= f.input :phone_number, required: false%>
     <%= f.input :address, required: false %>
     <%= f.input :city, required: false %>
-    <%= f.label :state, required: true %>
-    <%= f.select :state, options_for_select(us_states), required: true %>
+    <%= f.input :state, :label => "State - Two Letter Abbreviation", :value => current_user.state, required: false %>
     <%= f.input :zip, required: false %>
     <%= f.label :avatar, 'Change Picture' %>
     <%= f.file_field :avatar %>

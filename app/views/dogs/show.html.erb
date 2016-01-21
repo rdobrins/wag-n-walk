@@ -39,6 +39,8 @@ $(function() {
           </br>
         <%= button_to "Remove #{@dog.name} from Walk", dog_membership_path(@dog,mem), method: :delete %>
         </div>
+      <% else %>
+        <h4>None Scheduled.</h4>
       <% end %>
     <% end %>
   </div>
