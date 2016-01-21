@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+$(function() {
+  $( ".accordion" ).accordion();
+});
+</script>
+</br>
+<%= link_to "Back to User Page", user_path(@user) %>
+</br>
+<%= link_to "Edit Profile", edit_user_dog_path(@user, @dog) %>
+</br>
+<div class="float-left">
+  <ul>
+  <li><%= @dog.name %></li>
+  <li><img src="<%= @dog.avatar.url %>"></li>
+  <li><%= @dog.body %></li>
+  </ul>
+</div>
+
+<div class="float-right">
+
+  <h3>Walks that <%= @dog.name %> is scheduled for:</h3>
+
+  <div class="accordion">
+    <% @assignedwalks.each do |walk| %>
+      <% if walk.date >= Date.today && walk.user_id != @user.id %>
+        <h3> <%= walk.walker.first_name %> <%= walk.walker.last_name %> on <%= l walk.date %> </h3>
+        <div>
+          </br>
+        Capacity???
+          </br>
+        <%= walk.body %>
+          </br>
+        </div>
+        <% end %>
+      <% end %>
+  </div>
+
+  </br></br></br>
+
+  <h3>Availabile Walks in <%= @dog.name %>'s Neighborhood:</h3>
+
+  <div class="accordion">
+
+  <% @localwalks.each do |walk| %>
+    <% if walk.date >= Date.today && walk.user_id != @user.id && walk.dogs.include?(@dog) == false %>
+      <h3> <%= walk.walker.first_name %> <%= walk.walker.last_name %> on <%= l walk.date %> </h3>
+      <div>
+        </br>
+      Capacity???
+        </br>
+      <%= walk.body %>
+        </br>
+      <%= form_for [@dog, @membership] do |f| %>
+        <%= f.hidden_field(:walk_id, :value => walk.id) %>
+        <%= f.submit "Add To Walk" %>
+      <% end %>
+        </br>
+      </div>
+    <% end %>
+  <% end %>
+
+  </div>
+
+</div>

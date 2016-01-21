@@ -3,10 +3,11 @@ Rails.application.routes.draw do
 
   root 'landing#home'
 
+  resources :dogs, only: :none do
+    resources :memberships, only: :create
+  end
   resources :users do
-    resources :dogs do
-    end
-    resources :walks do
-    end
+    resources :dogs
+    resources :walks
   end
 end

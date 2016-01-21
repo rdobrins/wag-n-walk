@@ -1,4 +1,13 @@
 class DogsController < ApplicationController
+  def show
+    @user = current_user
+    @dog = Dog.find(params[:id])
+    @localusers = User.where(:zip == @user.zip)
+    @localwalks = Walk.where(@user.zip == @localusers.zip).sort_by &:date
+    @assignedwalks = @dog.walks.sort_by &:date
+    @membership = Membership.new
+  end
+
   def new
     @user = current_user
     @dog = Dog.new
