@@ -15,49 +15,54 @@
  *= require_self
 
  */
+
 body {
-  background-color: #B6B6B6;
+  background-color: #E6E6DC;
   color: #FF5A09;
   margin-left: 3rem;
   margin-right: 3rem;
 }
 
 h1 {
-  color: #004687;
+  color: #00628B;
 }
 
 h2 {
-  color: #004687;
+  color: #00628B;
+}
+
+h3 {
+  color: #00628B;
 }
 
 h4 {
-  color: #004687;
+  color: #00628B;
 }
 
 h5 {
-  color: #004687;
+  color: #00628B;
 }
 
 li {
-  color: #004687;
+  color: #00628B;
 }
 
 p {
-  color: #004687;
+  color: #00628B;
 }
 
 a:not(.not-this) {
-  background-color: #FF5A09;
-  padding: 0.3rem;
+  background-color: #81A594;
+  padding: 0.5rem;
   border-radius: 1rem;
-  color: #004687;
+  color: #00628B;
   font-weight: bold;
 }
 
 a:hover:not(.not-this) {
-  padding: 0.3rem;
+  padding: 0.5rem;
   border-radius: 1rem;
-  background-color: #ff9933;
+  background-color: #8bc697;
   font-weight: bold;
 }
 
@@ -72,19 +77,16 @@ ul {
 }
 
 .top-bar {
-  background-color: #F0F0F0;
+  background-color: #00628B;
   color: #004687;
+  margin-left: -7rem;
+  margin-right: -4rem;
+  margin-top: -1rem;
+}
+
+.to-edge {
   margin-left: -3rem;
   margin-right: -3rem;
-}
-
-.HomeHeader {
-  margin-left: 50px
-}
-
-.StationsHeader {
-  margin-left: 50px;
-  text-decoration: underline;
 }
 
 .centered {
@@ -110,34 +112,51 @@ ul {
 }
 
 .accordion {
-  background-color: #B6B6B6;
+  background-color: #E6E6DC;
   width: 30rem;
 }
 
 .dog-prof-boxes {
+  width: 25rem;
   min-width: 8rem;
-  background-color: #F0F0F0;
+  background-color: #81A594;
   border-radius: 1rem;
   padding: 1rem;
 }
 
-#topbar-img-size {
-  max-height: 3rem;
-  max-width: 3rem;
-}
-
-#img-size {
+.page-ownr-img {
+  border: 5px solid #00628B;
+  border-radius: 1rem;
   height: auto;
   width: auto;
-  max-width: 8rem;
-  max-height: 8rem;
+  width: 12rem;
+  height: 12rem;
+}
+
+.img-size {
+  border: 5px solid #00628B;
+  border-radius: 1rem;
+  height: auto;
+  width: auto;
+  width: 8rem;
+  height: 8rem;
+}
+
+.top-pad {
+  padding-top: 2.5rem;
+}
+
+.bot-pad {
+  padding-bottom: 1rem;
+}
+
+#topbar-img-size {
+  border-radius: 1rem;
+  max-height: 3rem;
+  max-width: 3rem;
 }
 
 #hometextpic {
   height: 3.75rem;
   padding-bottom: .75rem;
-}
-
-#home-compass {
-  color: #004687;
 }

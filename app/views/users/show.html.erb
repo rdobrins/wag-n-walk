@@ -9,14 +9,16 @@ $(function() {
 </script>
 
 <% if user_signed_in? %>
-  <div class="float-left">
-    <h1> Signed in as: <%= @user.first_name %> <%= @user.last_name %></h1>
+  <div class="top-pad bot-pad float-left">
     <%= link_to "History of Your Walks", user_walks_path(@user) %> </br>
+      </br>
     <% if @user.walker %>
       <%= link_to "Create Walk", new_user_walk_path(@user) %> </br></br>
     <% end %>
-      <img id='img-size' src="<%= @user.avatar.url %>"/>
-    <%= link_to "Add Dog", new_user_dog_path(@user) %>
+    <div class="bot-pad">
+      <img class='page-ownr-img' src="<%= @user.avatar.url %>"/>
+      <%= link_to "Add Dog", new_user_dog_path(@user) %>
+    </div>
     <% @user.dogs.each do |dog| %>
       <ul>
         <a class="not-this" href="/users/<%= @user.id %>/dogs/<%= dog.id %>">
@@ -29,7 +31,7 @@ $(function() {
               <% break %>
             <% end %>
           <% end %>
-          <img id='img-size' src="<%= dog.avatar.url %>"/>
+          <img class='img-size' src="<%= dog.avatar.url %>"/>
           <%= dog.body %>
         </div>
         </li>
@@ -38,7 +40,7 @@ $(function() {
     <% end %>
   </div>
   <% if @user.walker %>
-    <div class="float-right">
+    <div class="top-pad float-right">
       <h3>Your Upcoming Walks:</h3>
 
       <div class="accordion">
@@ -48,7 +50,9 @@ $(function() {
           <h3> <%= l walk.date %> </h3>
           <div>
           Capacity???
+            </br>
           <%= walk.body %>
+            </br></br>
           <%= link_to "Edit Walk", edit_user_walk_path(@user, walk) %>
           </div>
         <% end %>
