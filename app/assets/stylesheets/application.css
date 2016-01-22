@@ -42,16 +42,27 @@ li {
   color: #004687;
 }
 
-a {
+p {
   color: #004687;
 }
 
-a:hover {
-    background-color: #FF5A09;
+a:not(.not-this) {
+  background-color: #FF5A09;
+  padding: 0.3rem;
+  border-radius: 1rem;
+  color: #004687;
+  font-weight: bold;
+}
+
+a:hover:not(.not-this) {
+  padding: 0.3rem;
+  border-radius: 1rem;
+  background-color: #ff9933;
+  font-weight: bold;
 }
 
 label {
-  color: #f9f8f6;
+  color: #004687;
 }
 
 ul {
@@ -62,13 +73,9 @@ ul {
 
 .top-bar {
   background-color: #F0F0F0;
-  color: #FF5A09;
+  color: #004687;
   margin-left: -3rem;
   margin-right: -3rem;
-}
-
-.green-background {
-  background-color: #B6B6B6;
 }
 
 .HomeHeader {
@@ -93,26 +100,12 @@ ul {
   float: left;
 }
 
-.homepic {
-  height: 24rem;
-  background-size: cover;
-  overflow: hidden;
-  border-radius: 3rem;
-  float: right;
-  padding-right: 2rem;
-  margin-right: -15rem;
-}
-
 .form-inputs {
   width: 20rem;
 }
 
-.stations-list {
-  margin-left: 3rem;
-}
-
 .inline {
-  padding-right: 2rem;
+  padding: 2rem;
   display: inline-block;
 }
 
@@ -122,9 +115,15 @@ ul {
 }
 
 .dog-prof-boxes {
+  min-width: 8rem;
   background-color: #F0F0F0;
   border-radius: 1rem;
   padding: 1rem;
+}
+
+#topbar-img-size {
+  max-height: 3rem;
+  max-width: 3rem;
 }
 
 #img-size {
@@ -142,15 +141,3 @@ ul {
 #home-compass {
   color: #004687;
 }
-
-#subway-link:hover {
-  background-color: #FF5A09;
-}
-
-#search-button {
-  background-color: #004687;
-}
-
-/*#fff200
-#005542
-#f9f8f6*/
