@@ -19,7 +19,7 @@ $(function() {
     <%= link_to "Add Dog", new_user_dog_path(@user) %>
     <% @user.dogs.each do |dog| %>
       <ul>
-        <a href="/users/<%= @user.id %>/dogs/<%= dog.id %>">
+        <a class="not-this" href="/users/<%= @user.id %>/dogs/<%= dog.id %>">
         <li>
         <div class="dog-prof-boxes">
           <h3> <%= dog.name %> </h3>

@@ -1,59 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= content_for?(:title) ? yield(:title) : "Wag-N-Walk" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Wag N Walk" %></title>
 
-  <link rel="stylesheet" href="jdpicker.css" type="text/css" media="screen" />
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "vendor/modernizr" %>
-  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <link rel="stylesheet" href="jdpicker.css" type="text/css" media="screen" />
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a id="home-compass" href="/"><strong>Wag N Walk</strong></a></h1>
-      </li>
-    </ul>
+  <body>
+    <nav class="top-bar" data-topbar role="navigation">
+      <section class="top-bar-section">
+        <ul>
+            <li class="inline"><h1><a id="home-compass" href="/"><strong>Wag N Walk</strong></a></h1></li>
+          <% if user_signed_in? %>
+            <li class="inline"><div> Signed in as: <strong><%= current_user.first_name %> <%= current_user.last_name %></strong> </div></li>
+            <li class="inline"><div> <img id="topbar-img-size" src="<%= current_user.avatar.url %>"/> </div></li>
+            <li class="inline"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+            <li class="inline"><%= link_to 'Edit Info', edit_user_registration_path%></li>
+          <% else %>
+            <li class="inline"><%= link_to 'Sign In', new_user_session_path %></li>
+            <li class="inline"><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </section>
+    </nav>
 
-  <section class="top-bar-section">
-  <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="has-form">
-        <div class="row collapse">
-          <div class="large-8 small-9 columns">
-            <input type="text" placeholder="Search...">
-          </div>
-          <div class="large-4 small-3 columns">
-            <a href="#" class="alert button expand" id="search-button">Search</a>
-          </div>
-        </div>
-      </li>
-      <li class="has-dropdown">
-        <% if user_signed_in? %>
-          <li class="green-background"><strong><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></strong></li>
-          <li class="green-background"><strong><%= link_to 'Edit Info', edit_user_registration_path%></strong></li>
-        <% else %>
-          <li class="green-background"><strong><%= link_to 'Sign In', new_user_session_path %></strong></li>
-          <li class="green-background"><strong><%= link_to 'Sign Up', new_user_registration_path %></strong></li>
-        <% end %>
-      </li>
-    </ul>
-  </section>
-  </nav>
+    <%- flash.each do |key, value| -%>
+      <div class="flash flash-<%= key %>">
+        <%= value %>
+      </div>
+    <%- end -%>
 
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
-  <%- end -%>
 
-  <%= yield %>
+    <%= yield %>
 
-</body>
+  </body>
 </html>
