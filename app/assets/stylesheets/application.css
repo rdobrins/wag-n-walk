@@ -121,16 +121,16 @@ ul {
   padding: 1rem;
 }
 
-#topbar-img-size {
-  max-height: 3rem;
-  max-width: 3rem;
-}
-
-#img-size {
+.img-size {
   height: auto;
   width: auto;
   max-width: 8rem;
   max-height: 8rem;
+}
+
+#topbar-img-size {
+  max-height: 3rem;
+  max-width: 3rem;
 }
 
 #hometextpic {

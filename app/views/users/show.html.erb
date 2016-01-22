@@ -12,10 +12,11 @@ $(function() {
   <div class="float-left">
     <h1> Signed in as: <%= @user.first_name %> <%= @user.last_name %></h1>
     <%= link_to "History of Your Walks", user_walks_path(@user) %> </br>
+      </br>
     <% if @user.walker %>
       <%= link_to "Create Walk", new_user_walk_path(@user) %> </br></br>
     <% end %>
-      <img id='img-size' src="<%= @user.avatar.url %>"/>
+      <img class='img-size' src="<%= @user.avatar.url %>"/>
     <%= link_to "Add Dog", new_user_dog_path(@user) %>
     <% @user.dogs.each do |dog| %>
       <ul>
@@ -29,7 +30,7 @@ $(function() {
               <% break %>
             <% end %>
           <% end %>
-          <img id='img-size' src="<%= dog.avatar.url %>"/>
+          <img class='img-size' src="<%= dog.avatar.url %>"/>
           <%= dog.body %>
         </div>
         </li>
