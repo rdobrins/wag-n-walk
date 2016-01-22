@@ -11,18 +11,18 @@ $(function() {
 
   </br>
 <%= link_to "Back to User Page", user_path(@user) %>
-  </br>
+  </br></br>
 <%= link_to "Edit Profile", edit_user_dog_path(@user, @dog) %>
-  </br>
+  </br></br>
 <div class="float-left">
   <ul>
     <li><%= @dog.name %></li>
-    <li><img class="img-size" src="<%= @dog.avatar.url %>"></li>
+    <li><img class="page-ownr-img" src="<%= @dog.avatar.url %>"></li>
     <li><%= @dog.body %></li>
   </ul>
 </div>
 
-<div class="float-right">
+<div class="bot-pad float-right">
 
   <h3>Walks that <%= @dog.name %> is scheduled for:</h3>
 
@@ -36,7 +36,7 @@ $(function() {
         Capacity???
           </br>
         <%= walk.body %>
-          </br>
+          </br></br>
         <%= button_to "Remove #{@dog.name} from Walk", dog_membership_path(@dog,mem), method: :delete %>
         </div>
       <% else %>
@@ -45,7 +45,7 @@ $(function() {
     <% end %>
   </div>
 
-  </br></br></br>
+  </br></br>
 
   <h3>Availabile Walks in <%= @dog.name %>'s Neighborhood:</h3>
 
@@ -59,7 +59,7 @@ $(function() {
       Capacity???
         </br>
       <%= walk.body %>
-        </br>
+        </br></br>
       <%= form_for [@dog, @membership] do |f| %>
         <%= f.hidden_field(:walk_id, :value => walk.id) %>
         <%= f.submit "Add #{@dog.name} to Walk" %>

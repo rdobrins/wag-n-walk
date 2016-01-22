@@ -14,8 +14,8 @@
   </head>
 
   <body>
-    <nav class="top-bar" data-topbar role="navigation">
-      <section class="top-bar-section">
+    <nav class="bot-pad top-bar" data-topbar role="navigation">
+      <section>
         <ul>
             <li class="inline"><h1><a id="home-compass" href="/"><strong>Wag N Walk</strong></a></h1></li>
           <% if user_signed_in? %>
@@ -36,7 +36,6 @@
         <%= value %>
       </div>
     <%- end -%>
-
 
     <%= yield %>
 
