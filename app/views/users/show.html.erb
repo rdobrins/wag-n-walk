@@ -10,7 +10,7 @@ $(function() {
 
 <% if user_signed_in? %>
   <div class="top-pad bot-pad float-left">
-    <%= link_to "History of Your Walks", user_walks_path(@user) %> </br>
+    <%= link_to "Walk History", user_walks_path(@user) %> </br>
       </br>
     <% if @user.walker %>
       <%= link_to "Create Walk", new_user_walk_path(@user) %> </br></br>
