@@ -5,36 +5,49 @@
 
 <script>
 $(function() {
-  $( ".accordion" ).accordion();
+  var icons = {
+      header: "ui-icon-circle-arrow-e",
+      activeHeader: "ui-icon-circle-arrow-s"
+    };
+    $( ".accordion" ).accordion({
+      icons: icons
+    });
 });
 </script>
 
   </br>
 <%= link_to "Back to User Page", user_path(@user) %>
-  </br></br>
 <%= link_to "Edit Profile", edit_user_dog_path(@user, @dog) %>
   </br></br>
 <div class="float-left">
   <ul>
-    <li><%= @dog.name %></li>
+    <h1><li><%= @dog.name %></li></h1>
     <li><img class="page-ownr-img" src="<%= @dog.avatar.url %>"></li>
-    <li><%= @dog.body %></li>
+      </br>
+    <div class="dog-descr">
+      <div class="dog-descr-text">
+        <li>Breed: <%= @dog.breed %></li>
+          </br>
+        <li><%= @dog.name %>'s Bio:</li>
+          </br>
+        <li><%= @dog.body %></li>
+      </div>
+    </div>
   </ul>
 </div>
 
 <div class="bot-pad float-right">
 
-  <h3>Walks that <%= @dog.name %> is scheduled for:</h3>
+  <h2>Scheduled Walks :</h2>
 
   <div class="accordion">
     <% @memberships.each do |mem| %>
       <% walk = Walk.find(mem[:walk_id]) %>
-      <% if walk.date >= Date.today && walk.user_id != @user.id %>
+      <% if walk.date >= Date.today && walk.user_id != @user.id && walk.walker.zip == @dog.user.zip %>
         <h3> <%= walk.walker.first_name %> <%= walk.walker.last_name %> on <%= l walk.date %> </h3>
         <div>
-          </br>
-        Capacity???
-          </br>
+        Capacity: <%= walk.dogs.count %> / <%= walk.capacity %>
+          </br></br>
         <%= walk.body %>
           </br></br>
         <%= button_to "Remove #{@dog.name} from Walk", dog_membership_path(@dog,mem), method: :delete %>
@@ -47,24 +60,22 @@ $(function() {
 
   </br></br>
 
-  <h3>Availabile Walks in <%= @dog.name %>'s Neighborhood:</h3>
+  <h2>Availabile Walks :</h2>
 
   <div class="accordion">
 
   <% @localwalks.each do |walk| %>
-    <% if walk.date >= Date.today && walk.user_id != @user.id && walk.dogs.include?(@dog) == false %>
+    <% if walk.date >= Date.today && walk.user_id != @user.id && walk.dogs.include?(@dog) == false && walk.walker.zip == @dog.user.zip && walk.dogs.count < walk.capacity %>
       <h3> <%= walk.walker.first_name %> <%= walk.walker.last_name %> on <%= l walk.date %> </h3>
       <div>
-        </br>
-      Capacity???
-        </br>
-      <%= walk.body %>
-        </br></br>
-      <%= form_for [@dog, @membership] do |f| %>
-        <%= f.hidden_field(:walk_id, :value => walk.id) %>
-        <%= f.submit "Add #{@dog.name} to Walk" %>
-      <% end %>
-        </br>
+        Capacity: <%= walk.dogs.count %> / <%= walk.capacity %>
+          </br></br>
+        <%= walk.body %>
+          </br></br>
+        <%= form_for [@dog, @membership] do |f| %>
+          <%= f.hidden_field(:walk_id, :value => walk.id) %>
+          <%= f.submit "Add #{@dog.name} to Walk" %>
+        <% end %>
       </div>
     <% end %>
   <% end %>

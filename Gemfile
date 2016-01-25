@@ -15,6 +15,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog'
 gem 'kaminari'
+gem 'twitter'
 
 group :development, :test do
   gem 'dotenv'

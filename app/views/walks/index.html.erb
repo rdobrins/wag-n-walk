@@ -1,20 +1,58 @@
-<h1>You'll be able to view a history of all the walks you've created and had your dogs attend here</h1>
-
 
 <% if user_signed_in? %>
-  <% if @user.walker %>
-    <h3>List of Walks You Created:</h3>
-    <% @user.walks.each do |walk| %>
-      <ul>
-        <li><%= walk.date %><%= walk.body %></li>
-      </ul>
-    <% end %>
-  <% end %>
 
-  <h3>Additional content to display the walks that the users dogs attended</h3>
+    </br>
+  <%= link_to "Back to User Page", user_path(@user) %>
+    </br>
+
+  <div class="top-pad">
+    <% if @user.walker %>
+      <div class="walk-history">
+      <h3><strong><%= @user.first_name %>'s Walk History</strong></h3>
+        <% @yourwalks.each do |walk| %>
+          <ul>
+            <li>
+              <div class="each-walk">
+              <%= walk.date.to_formatted_s(:long) %> with
+              <% walk.dogs.each do |dog| %>
+              <ul>
+                <li>- <%= dog.name %></li>
+              </ul>
+              <% end %>
+              </div>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="top-pad">
+    <div class="walk-history">
+      <% @user.dogs.each do |dog| %>
+          </br>
+        <h3><strong><%= dog.name %>'s Walk History</strong></h3>
+        <% dog.walks.each do |walk| %>
+        <ul>
+          <li>
+            <div class="each-walk">
+            <%= walk.date.to_formatted_s(:long) %> with
+            <%= User.find(walk.user_id).first_name %>
+            <%= User.find(walk.user_id).last_name %>
+            </div>
+          </li>
+        </ul>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+    </br>
+  <%= link_to "Back to User Page", user_path(@user) %>
 
 <% else %>
+
   <h3> Must be signed in and registered as a walker to view prior walks </h3>
     </br>
   <%= link_to "Home Page", root_path %>
+
 <% end %>

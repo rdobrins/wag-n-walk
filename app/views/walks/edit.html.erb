@@ -12,7 +12,9 @@
       <%= f.hidden_field(:user_id, :value => @user.id) %>
       <%= f.submit "Edit Walk" %>
     <% end %>
+      </br>
     <%= link_to "Delete Walk", user_walk_path(@user, @walk), data: {confirm: "Delete this walk?"}, method: :delete %>
+      </br></br>
     <%= link_to "Back to User Page", user_path(@user) %>
   </div>
 <% else %>

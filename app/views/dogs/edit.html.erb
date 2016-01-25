@@ -16,7 +16,9 @@
       <%= f.hidden_field(:user_id, :value => @user.id) %>
       <%= f.submit "Update Dog Information" %>
     <% end %>
+      </br>
     <%= link_to "Delete Dog Profile", user_dog_path(@user, @dog), data: {confirm: "Delete this profile?"}, method: :delete %>
+      </br></br>
     <%= link_to "Back to User Page", user_path(@user) %>
   </div>
 <% else %>

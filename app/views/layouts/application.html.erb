@@ -17,7 +17,7 @@
     <nav class="bot-pad top-bar" data-topbar role="navigation">
       <section>
         <ul>
-            <li class="inline"><h1><a id="home-compass" href="/"><strong>Wag N Walk</strong></a></h1></li>
+            <li class="inline"><div class="icon-display"><h1><a id="home-compass" href="/"><strong>Wag N Walk</strong></a></h1></div></li>
           <% if user_signed_in? %>
             <li class="inline"><div> Signed in as: <strong><%= current_user.first_name %> <%= current_user.last_name %></strong> </div></li>
             <li class="inline"><div> <img id="topbar-img-size" src="<%= current_user.avatar.url %>"/> </div></li>
@@ -27,6 +27,7 @@
             <li class="inline"><%= link_to 'Sign In', new_user_session_path %></li>
             <li class="inline"><%= link_to 'Sign Up', new_user_registration_path %></li>
           <% end %>
+            <li class="inline"><%=link_to "Twitter", "https://twitter.com/BostonWag"%></li>
         </ul>
       </section>
     </nav>
