@@ -8,7 +8,7 @@
       <%= f.text_field :breed, value: @dog.breed %>
         </br>
       <%= f.label :body, "Doggy Info" %>
-      <%= f.text_area :body, value: @dog.body %>
+      <%= f.text_area :body, size: "5x5", value: @dog.body %>
         </br>
       <%= f.label :avatar, 'Change Picture' %>
       <%= f.file_field :avatar %>
