@@ -1,9 +1,33 @@
-<h1>This is the landing page</h1>
-
+<%10.times do%>
+  <img class="home-dog-pic" src="<%= @dogimgs.sample %>"/>
+<% end %>
 
 <% if user_signed_in? %>
-  <h1> Signed in as: <%= @user.first_name %> <%= @user.last_name %></h1>
-  <%= link_to "Continue to User Profile", user_path(@user) %>
+  <div class="row">
+    <div class="small-5 small-centered columns">
+      <h2> Welcome, <%= @user.first_name %>!</h2>
+    </div>
+  </div>
+  </br>
+  <div class="row">
+    <div class="small-9 small-centered columns">
+      <h1><%= link_to "Continue to User Profile", user_path(@user) %></h1>
+    </div>
+  </div>
 <% else %>
-    <h1>Please Sign Up or Sign In to Continue!</h1>
+<div class="row">
+  <div class="small-8 small-centered columns">
+    <h1><strong>Welcome to Wag N Walk!</strong></h1>
+  </div>
+</div>
+    <div class="row">
+      <div class="small-9 small-centered columns">
+    <h2>Sign Up or Sign In to Continue</h2>
+  </div>
+</div>
+<% end %>
+</div>
+
+<%30.times do%>
+  <img class="home-dog-pic" src="<%= @dogimgs.sample %>"/>
 <% end %>

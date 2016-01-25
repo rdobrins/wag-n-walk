@@ -1,19 +1,25 @@
 
 <% if user_signed_in? %>
 
+    </br>
+  <%= link_to "Back to User Page", user_path(@user) %>
+    </br>
+
   <div class="top-pad">
     <% if @user.walker %>
       <div class="walk-history">
-      <h3>Your Walk History</h3>
+      <h3><strong><%= @user.first_name %>'s Walk History</strong></h3>
         <% @yourwalks.each do |walk| %>
           <ul>
             <li>
+              <div class="each-walk">
               <%= walk.date.to_formatted_s(:long) %> with
               <% walk.dogs.each do |dog| %>
               <ul>
                 <li>- <%= dog.name %></li>
               </ul>
               <% end %>
+              </div>
             </li>
           </ul>
         <% end %>
@@ -25,19 +31,23 @@
     <div class="walk-history">
       <% @user.dogs.each do |dog| %>
           </br>
-        <h3><%= dog.name %>'s Walk History</h3>
+        <h3><strong><%= dog.name %>'s Walk History</strong></h3>
         <% dog.walks.each do |walk| %>
         <ul>
           <li>
+            <div class="each-walk">
             <%= walk.date.to_formatted_s(:long) %> with
             <%= User.find(walk.user_id).first_name %>
             <%= User.find(walk.user_id).last_name %>
+            </div>
           </li>
         </ul>
         <% end %>
       <% end %>
     </div>
   </div>
+    </br>
+  <%= link_to "Back to User Page", user_path(@user) %>
 
 <% else %>
 

@@ -17,6 +17,9 @@ class WalksController < ApplicationController
 
     if @walk.save
       flash[:notice] = "Walk Created Successfully"
+      # m = "#{@walk.walker.first_name} just added a walk! Check it out at"
+      # m += " https://wag-n-walk.herokuapp.com/"
+      # $twitter.update(m)
       redirect_to user_path(@user)
     else
       flash[:errors] = @walk.errors.full_messages.join(". ")

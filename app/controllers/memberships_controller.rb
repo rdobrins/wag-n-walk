@@ -7,6 +7,7 @@ class MembershipsController < ApplicationController
 
     if @membership.save
       flash[:notice] = "Dog added to walk successfully"
+      # ReviewMailer.new_review(@review).deliver_later
       redirect_to user_dog_path(@user, @dog)
     else
       flash[:notice] = "Dog already belongs to walk."

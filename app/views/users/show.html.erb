@@ -4,35 +4,45 @@
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script>
 $(function() {
-  $( ".accordion" ).accordion();
+  var icons = {
+      header: "ui-icon-circle-arrow-e",
+      activeHeader: "ui-icon-circle-arrow-s"
+    };
+    $( ".accordion" ).accordion({
+      icons: icons
+    });
 });
 </script>
 
 <% if user_signed_in? %>
   <div class="top-pad bot-pad float-left">
-    <%= link_to "Walk History", user_walks_path(@user) %> </br>
-      </br>
-    <% if @user.walker %>
-      <%= link_to "Create Walk", new_user_walk_path(@user) %> </br></br>
-    <% end %>
     <div class="bot-pad">
+      <h2><strong><%= @user.first_name %> <%= @user.last_name %></strong></h2>
       <img class='page-ownr-img' src="<%= @user.avatar.url %>"/>
-      <%= link_to "Add Dog", new_user_dog_path(@user) %>
+        </br>
+      <div class="top-pad bot-pad">
+        <%= link_to "Add Dog", new_user_dog_path(@user) %>
+        <%= link_to "Walk History", user_walks_path(@user) %>
+        <% if @user.walker %>
+          <%= link_to "Create Walk", new_user_walk_path(@user) %>
+        <% end %>
+      </div>
     </div>
     <% @user.dogs.each do |dog| %>
       <ul>
         <a class="not-this" href="/users/<%= @user.id %>/dogs/<%= dog.id %>">
         <li>
         <div class="dog-prof-boxes">
-          <h3> <%= dog.name %> </h3>
+          <div class="disp-inline">
+            <h1> <%= dog.name %> </h1>
+          </div>
+          <img class='float-right img-size' src="<%= dog.avatar.url %>"/>
           <% dog.walks.each do |walk| %>
             <% if walk.date >= Date.today %>
-              <h5>Has an upcoming walk!</h5>
+              <h5 style="color:#FF5A09">** Scheduled for Walk **</h5>
               <% break %>
             <% end %>
           <% end %>
-          <img class='img-size' src="<%= dog.avatar.url %>"/>
-          <%= dog.body %>
         </div>
         </li>
         </a>
@@ -41,7 +51,7 @@ $(function() {
   </div>
   <% if @user.walker %>
     <div class="top-pad float-right">
-      <h3>Your Upcoming Walks:</h3>
+      <h2><%= @user.first_name %>'s Upcoming Walks:</h2>
 
       <div class="accordion">
 
@@ -49,8 +59,8 @@ $(function() {
         <% if walk.date >= Date.today %>
           <h3> <%= l walk.date %> </h3>
           <div>
-          Capacity???
-            </br>
+          Capacity: <%= walk.dogs.count %> / <%= walk.capacity %>
+        </br></br>
           <%= walk.body %>
             </br></br>
           <%= link_to "Edit Walk", edit_user_walk_path(@user, walk) %>
