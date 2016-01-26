@@ -1,3 +1,3 @@
-class ApplicationMailer < ActionMailer::Base
-  default from: "\"Wag N Walk\" <wagnwalk2016@gmail.com>"
-end
+# class ApplicationMailer < ActionMailer::Base
+#   default from: "\"Wag N Walk\" <wagnwalk2016@gmail.com>"
+# end
