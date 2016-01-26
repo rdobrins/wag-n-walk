@@ -13,10 +13,10 @@
           <ul>
             <li>
               <div class="each-walk">
-              <%= walk.date.to_formatted_s(:long) %> with
+              <strong><%= walk.dogs.count %> dogs on <%= walk.date.to_formatted_s(:long) %></strong>
               <% walk.dogs.each do |dog| %>
               <ul>
-                <li>- <%= dog.name %></li>
+                <li> <%= dog.name %></li>
               </ul>
               <% end %>
               </div>
