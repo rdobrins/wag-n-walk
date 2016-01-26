@@ -253,6 +253,21 @@ ul {
   margin-left: -5rem;
 }
 
+.walk-history-dog {
+  background-color: #E6E6DC;
+  padding: .15rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  border-radius: 10px;
+  font-family: Courier;
+  color: #00628B;
+}
+
+.walk-history-dog:hover {
+  background-color: #00628B;
+  color: #E6E6DC;
+}
+
 #topbar-img-size {
   border: 3px solid #81A594;
   border-radius: 1rem;
