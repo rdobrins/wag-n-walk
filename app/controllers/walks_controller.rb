@@ -2,7 +2,7 @@ class WalksController < ApplicationController
   def index
     @walks = Walk.all
     @user = current_user
-    @yourwalks = @walks.sort_by(&:date)
+    @yourwalks = @walks.where(user_id: @user.id).sort_by(&:date)
   end
 
   def new
