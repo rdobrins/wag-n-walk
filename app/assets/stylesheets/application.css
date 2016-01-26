@@ -15,6 +15,11 @@
  *= require_self
  */
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background-color: #E6E6DC;
   color: #ff4d4d;
@@ -188,7 +193,7 @@ ul {
   margin-left: -0.28rem;
   width: 10%;
   display: inline-block;
-  opacity: 0.4;
+  opacity: 0.2;
 }
 
 .full-width {
@@ -234,6 +239,18 @@ ul {
 
 .navy-blue {
   color: #00628B;
+}
+
+.homepage-bar {
+  background-color: #81A594;
+  height: 1rem;
+  width: 113%;
+  margin-left: -5rem;
+}
+
+.align-pics {
+  width: 113%;
+  margin-left: -5rem;
 }
 
 #topbar-img-size {
