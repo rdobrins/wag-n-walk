@@ -15,9 +15,9 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog'
 gem 'kaminari'
-gem 'twitter'
-gem 'twilio-ruby'
-gem 'sqlite3'
+# gem 'twitter'
+# gem 'twilio-ruby'
+# gem 'sqlite3'
 
 group :development, :test do
   gem 'dotenv'
