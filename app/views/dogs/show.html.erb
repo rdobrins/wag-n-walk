@@ -25,7 +25,8 @@ $(function() {
   <ul>
     <h1><li><%= @dog.name %></li></h1>
     <% if current_user != @user %>
-      <li><%= @dog.user.address %>, <%= @dog.user.city %>, <%= @dog.user.state %> <%= @dog.user.zip %></li>
+      <li>Owner: <strong><%= @dog.user.first_name %> <%= @dog.user.last_name %></strong></li>
+      <li>Address: <strong><%= @dog.user.address %>, <%= @dog.user.city %>, <%= @dog.user.state %> <%= @dog.user.zip %></strong></li>
       </br>
     <% end %>
     <li><img class="page-ownr-img" src="<%= @dog.avatar.url %>"></li>
