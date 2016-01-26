@@ -217,6 +217,25 @@ ul {
   margin-top: 1rem;
 }
 
+.dog-list {
+  margin-left: -1rem;
+  font-weight: bold;
+  background-color: #81A594;
+  padding: .15rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  border-radius: 10px;
+  font-family: Courier;
+}
+
+.dog-list:hover {
+  background-color: #8bc697;
+}
+
+.navy-blue {
+  color: #00628B;
+}
+
 #topbar-img-size {
   border: 3px solid #81A594;
   border-radius: 1rem;

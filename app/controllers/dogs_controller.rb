@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
   def show
-    @user = current_user
+    @user = User.find(params[:user_id])
     @dog = Dog.find(params[:id])
     @localusers = User.where(:zip == @user.zip)
     @localwalks = Walk.where(@user.zip == @localusers.zip).sort_by &:date

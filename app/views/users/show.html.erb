@@ -59,10 +59,19 @@ $(function() {
         <% if walk.date >= Date.today %>
           <h3> <%= l walk.date %> </h3>
           <div>
-          Capacity: <%= walk.dogs.count %> / <%= walk.capacity %>
-        </br></br>
-          <%= walk.body %>
-            </br></br>
+          <p class="navy-blue"><strong>Capacity: <%= walk.dogs.count %> / <%= walk.capacity %></strong></p>
+          <p class="navy-blue"><strong>Dogs:</strong></p>
+          <ul>
+          <% walk.dogs.each do |dog| %>
+            <li>
+              <a class='not-this dog-list' href="/users/<%= dog.user.id %>/dogs/<%= dog.id %>">
+                <%= dog.name %>
+              </a>
+            </li>
+          <% end %>
+          </ul>
+          <p class="navy-blue"><%= walk.body %></p>
+            </br>
           <%= link_to "Edit Walk", edit_user_walk_path(@user, walk) %>
           </div>
         <% end %>
