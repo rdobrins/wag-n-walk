@@ -10,22 +10,23 @@
       <div class="walk-history">
       <h3><strong><%= @user.first_name %>'s Walk History</strong></h3>
         <% @yourwalks.each do |walk| %>
-          <ul>
-            <li>
-              <div class="each-walk">
-              <strong><%= walk.dogs.count %> dogs on <%= walk.date.to_formatted_s(:long) %></strong>
-              <% walk.dogs.each do |dog| %>
-              <ul>
-                <li>
-                  <a class="not-this walk-history-dog" href="/users/<%= dog.user.id %>/dogs/<%= dog.id %>">
-                    <%= dog.name %>
-                  </a>
-                </li>
-              </ul>
-              <% end %>
-              </div>
-            </li>
-          </ul>
+            <ul>
+              <li>
+                <div class="each-walk">
+                <strong><%= walk.dogs.count %> Dogs Walked on <%= walk.date.to_formatted_s(:long) %></strong>
+                  </br></br>
+                <% walk.dogs.each do |dog| %>
+                <ul>
+                  <li>
+                    <a class="not-this walk-history-dog" href="/users/<%= dog.user.id %>/dogs/<%= dog.id %>">
+                      <%= dog.name %>
+                    </a>
+                  </li>
+                </ul>
+                <% end %>
+                </div>
+              </li>
+            </ul>
         <% end %>
       </div>
     <% end %>

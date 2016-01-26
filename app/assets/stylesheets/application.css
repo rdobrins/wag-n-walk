@@ -174,7 +174,8 @@ ul {
 }
 
 .each-walk {
-  width: 23rem;
+  margin-left: -1rem;
+  width: 24rem;
   border-radius: 1rem;
   padding: 1rem;
   background-color: #81A594;
