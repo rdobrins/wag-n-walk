@@ -29,12 +29,12 @@ body {
 
 h1 {
   color: #00628B;
-  font-family: Courier;
+  font-family: 'Permanent Marker', cursive;
 }
 
 h2 {
   color: #00628B;
-  font-family: Courier;
+  font-family: 'Permanent Marker', cursive;
 }
 
 h3 {
@@ -173,6 +173,10 @@ ul {
   padding-bottom: 1rem;
 }
 
+.right-pad {
+  padding-right: 1rem;
+}
+
 .each-walk {
   margin-left: -1rem;
   width: 24rem;
@@ -267,6 +271,10 @@ ul {
 .walk-history-dog:hover {
   background-color: #00628B;
   color: #E6E6DC;
+}
+
+.google-font {
+  font-family: 'Yellowtail', cursive;
 }
 
 #topbar-img-size {

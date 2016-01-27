@@ -6,6 +6,8 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Wag N Walk" %></title>
 
+    <link href='https://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="jdpicker.css" type="text/css" media="screen" />
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -18,7 +20,7 @@
     <nav class="bot-pad top-bar" data-topbar role="navigation">
       <section>
         <ul>
-            <li class="inline"><div class="icon-display"><h1><a id="home-compass" href="/"><strong>Wag N Walk</strong></a></h1></div></li>
+            <li class="inline"><div class="icon-display"><h1><a class="google-font" href="/"><strong class="right-pad">Wag N Walk</strong></a></h1></div></li>
           <% if user_signed_in? %>
             <li class="inline"><div> Signed in as: <strong><%= current_user.first_name %> <%= current_user.last_name %></strong> </div></li>
             <li class="inline"><div> <img id="topbar-img-size" src="<%= current_user.avatar.url %>"/> </div></li>
@@ -40,6 +42,7 @@
     <%- end -%>
 
     <%= yield %>
+
   </div>
   </body>
 </html>
