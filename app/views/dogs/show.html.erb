@@ -3,18 +3,6 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
 
-<script>
-$(function() {
-  var icons = {
-      header: "ui-icon-circle-arrow-e",
-      activeHeader: "ui-icon-circle-arrow-s"
-    };
-    $( ".accordion" ).accordion({
-      icons: icons
-    });
-});
-</script>
-
   </br>
 <%= link_to "Back to User Page", user_path(current_user) %>
 <% if current_user == @user %>
