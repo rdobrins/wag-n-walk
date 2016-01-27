@@ -17,7 +17,7 @@ $(function() {
 <% if user_signed_in? %>
   <div class="top-pad bot-pad float-left">
     <div class="bot-pad">
-      <h2><strong><%= @user.first_name %> <%= @user.last_name %></strong></h2>
+      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
       <img class='page-ownr-img' src="<%= @user.avatar.url %>"/>
         </br>
       <div class="top-pad bot-pad">
@@ -34,7 +34,7 @@ $(function() {
         <li>
         <div class="dog-prof-boxes">
           <div class="disp-inline">
-            <h1> <%= dog.name %> </h1>
+            <h2> <%= dog.name %> </h2>
           </div>
           <img class='float-right img-size' src="<%= dog.avatar.url %>"/>
           <% dog.walks.each do |walk| %>
