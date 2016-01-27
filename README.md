@@ -13,20 +13,20 @@ Wag N Walk's primary goal is to provide a user-friendly platform for dog walkers
 The application allows users to register as a dog walker and/or a dog owner.
 </br></br>
 ####Home Page
-![pic_uno](/vendor/assets/images/sitepic1.png)
+![pic_uno](/vendor/assets/images/picunowag.png)
 </br></br>
-Walkers have the ability to create walk schedules and are then made available to owners in their area.
+Walkers have the ability to create walk schedules and those schedules are then made available to owners in the area.
 </br></br>
 ####User Profile
-![pic_dos](/vendor/assets/images/new_user_prof.png)
+![pic_dos](/vendor/assets/images/picdoswag.png)
 </br></br>
-Alternatively, owners create their own personal profile and then a profile for each of their dogs to be shared with the walkers who they are assigned to.
+Alternatively, owners can create a specific dog profile for each of their dogs. The profile displays available walks for the dog and is used to brief walkers that the dog is assigned to prior to walks.
 </br></br>
 ####Dog Profile
-![pic_tres](/vendor/assets/images/new_dog_pic.png)
+![pic_tres](/vendor/assets/images/pictreswag.png)
 </br>
 ###Technologies Used :
-Ruby, Rails, TDD, Javascript, JQuery, AJAX, HTML, CSS, Heroku, ActiveRecord, GitHub (obviously), Capybara (Integration Tests)
+Ruby, Rails, TDD, Javascript, JQuery, AJAX, HTML, CSS, Heroku, ActiveRecord, Google Fonts, GitHub (obviously), Capybara (Integration Tests)
 </br>
 ###API/Gems :
 - Twilio (SMS Alerts)

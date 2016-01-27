@@ -28,6 +28,7 @@ $(function() {
         <% end %>
       </div>
     </div>
+    <h3><%= @user.first_name %>'s Dogs:</h3>
     <% @user.dogs.each do |dog| %>
       <ul>
         <a class="not-this" href="/users/<%= @user.id %>/dogs/<%= dog.id %>">
@@ -51,7 +52,7 @@ $(function() {
   </div>
   <% if @user.walker %>
     <div class="top-pad float-right">
-      <h2><%= @user.first_name %>'s Upcoming Walks:</h2>
+      <h3><%= @user.first_name %>'s Upcoming Walks:</h3>
 
       <div class="accordion">
 
@@ -60,7 +61,7 @@ $(function() {
           <h3> <%= l walk.date %> </h3>
           <div>
           <p class="navy-blue"><strong>Capacity: <%= walk.dogs.count %> / <%= walk.capacity %></strong></p>
-          <p class="navy-blue"><strong>Dogs:</strong></p>
+          <p class="navy-blue"><strong>Dogs on Walk:</strong></p>
           <ul>
           <% walk.dogs.each do |dog| %>
             <li>
