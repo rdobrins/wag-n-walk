@@ -26,9 +26,6 @@
             <li class="inline"><div> <img id="topbar-img-size" src="<%= current_user.avatar.url %>"/> </div></li>
             <li class="inline"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
             <li class="inline"><%= link_to 'Edit Info', edit_user_registration_path%></li>
-          <% else %>
-            <li class="inline"><%= link_to 'Sign In', new_user_session_path %></li>
-            <li class="inline"><%= link_to 'Sign Up', new_user_registration_path %></li>
           <% end %>
             <li class="inline"><%=link_to "Twitter", "https://twitter.com/BostonWag"%></li>
         </ul>
