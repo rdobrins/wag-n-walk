@@ -9,6 +9,7 @@ FactoryGirl.define do
     state "MA"
     zip "01234"
     password "password"
+    walker true
   end
 end
 
