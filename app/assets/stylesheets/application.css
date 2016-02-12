@@ -278,6 +278,20 @@ ul {
   font-family: 'Yellowtail', cursive;
 }
 
+.flash {
+  border-radius: 2em;
+  height: 3em;
+  width: 100%;
+  background-color: #E06E6E;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.pad-topp {
+  padding-top: .5em;
+  color: #FFFFFF;
+}
+
 #topbar-img-size {
   border: 3px solid #81A594;
   border-radius: 1rem;
