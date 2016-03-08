@@ -22,12 +22,11 @@
         <ul>
             <li class="inline"><div class="icon-display"><h1><a class="google-font" href="/"><strong class="right-pad">Wag N Walk</strong></a></h1></div></li>
           <% if user_signed_in? %>
-            <li class="inline"><div> Signed in as: <strong><%= current_user.first_name %> <%= current_user.last_name %></strong> </div></li>
+            <li class="inline"><div><strong><%= current_user.first_name %> <%= current_user.last_name %></strong> </div></li>
             <li class="inline"><div> <img id="topbar-img-size" src="<%= current_user.avatar.url %>"/> </div></li>
             <li class="inline"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
             <li class="inline"><%= link_to 'Edit Info', edit_user_registration_path %></li>
           <% end %>
-            <li class="inline"><%= link_to "Twitter", "https://twitter.com/BostonWag" %></li>
             <li class="inline"><%= link_to "About Wag N Walk", landing_index_path %></li>
         </ul>
       </section>
