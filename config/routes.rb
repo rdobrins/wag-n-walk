@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :dogs, only: :none do
     resources :memberships, only: [:create, :destroy]
   end
+
+  resources :landing, only: [:index]
+
   resources :users do
     resources :dogs
     resources :walks

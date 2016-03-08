@@ -16,4 +16,8 @@ class LandingController < ApplicationController
     "http://i.imgur.com/ewbQn0p.png"
     ]
   end
+
+  def index
+
+  end
 end

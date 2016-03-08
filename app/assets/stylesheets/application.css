@@ -292,6 +292,23 @@ ul {
   color: #FFFFFF;
 }
 
+.about-box {
+  margin-top: 2em;
+  border: .35em solid #81A594;
+  max-width: 50em;
+  padding: 1.5em;
+  padding-bottom: 0em;
+  border-radius: 2em;
+}
+
+.about-text {
+  padding: 1.5em;
+}
+
+.home-button {
+  width: 15em;
+}
+
 #topbar-img-size {
   border: 3px solid #81A594;
   border-radius: 1rem;
